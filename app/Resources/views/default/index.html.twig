@@ -1,6 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% if is_granted('ROLE_USER') %}
+    <div class="navbar">
+        <a href="logout">logout</a>
+        <a href="welcome">Home</a>
+    </div>
+    {% endif %}
+    
+    
     <div id="wrapper">
         <div id="container">
             <div id="welcome">
@@ -72,5 +80,17 @@
         @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
         .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
     }
+    .navbar {
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+      .navbar a{
+        float:right;
+        color:white;
+        padding: 0 10px;
+      }
 </style>
 {% endblock %}

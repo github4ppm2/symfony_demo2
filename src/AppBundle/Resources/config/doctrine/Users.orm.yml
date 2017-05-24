@@ -12,6 +12,7 @@ AppBundle\Entity\Users:
         name:
             type: string
             length: '191'
+            nullable: true
         username:
             type: string
             length: '191'
@@ -23,10 +24,4 @@ AppBundle\Entity\Users:
         password:
             type: string
             length: '191'
-        createdAt:
-            type: datetime
-            column: created_at
-        updatedAt:
-            type: datetime
-            column: updated_at
     lifecycleCallbacks: {  }

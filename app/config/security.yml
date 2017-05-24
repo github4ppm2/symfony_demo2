@@ -24,6 +24,7 @@ security:
             form_login:
                 login_path: login
                 check_path: login
+                default_target_path: welcome
             # activate different ways to authenticate
 
             # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
@@ -34,6 +35,17 @@ security:
             pattern:    ^/
             http_basic: ~
             provider: our_db_provider
+
+            logout:
+                path:   /logout
+                target: /login
+            
             
     encoders:
         AppBundle\Entity\Users: bcrypt
+        
+        
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_USER }
