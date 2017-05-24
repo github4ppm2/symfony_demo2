@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {% stylesheets 'less/style.less' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}">
+        {% endstylesheets %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+        <!-- Latest compiled and minified JavaScript -->
+<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+    </body>
+</html>
